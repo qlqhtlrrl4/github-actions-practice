@@ -36,6 +36,17 @@ jobs:
 
       - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
         # $ => 실제 linux에서 변수를 나타내는 방식
+        # $GITHUB_SHA : 지금 해당하는 Commit ID 를 의미한다.
+        # $GITHUB_REPOSITORY : 지금 해당하는 Repository를 의미
         run: |
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
+        # Github는 Secret값을 사용할 수 있는 기능을 만들어 놨다.
+        # repository -> settings -> 좌측메뉴 Secrets and variables -> Actions에서 등록
+    
+      - name: 아무한테나 노출되면 안되는 값
+        # Github에 등록한 secret 값은 아래와 같이 secrets. 으로 사용하면된다.
+        run: |
+          echo ${{ secrets.MY_NAME }}
+          echo ${{ secrets.MY_HOBBY }}
+          
