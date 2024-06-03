@@ -29,6 +29,13 @@ jobs:
         run: echo "Hello World"
 
       - name: 여러 명령어 문장 작성하기
+        # 여러줄을 사용할 때는 | 를 사용하면 된다.
         run: |
           echo "Good"
           echo "Morining"
+
+      - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
+        # $ => 실제 linux에서 변수를 나타내는 방식
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
